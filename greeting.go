@@ -1,16 +1,13 @@
 package main
 import ("fmt")
 
-func main() {
-	num := 3
-	fmt.Println(num)
-	fmt.Println("Good morning")
-	fmt.Println("Good afternoon")
-	fmt.Println("Good evening")
-	array()
+type User struct {
+	gender string
+	age int
 }
 
-func array() {
-	a := [...]string{"a", "b", "c"}
-	fmt.Println(a)
+func main() {
+	u := User{"male", 22}
+
+	fmt.Println(u)
 }
