@@ -11,6 +11,7 @@ func main() {
 	u := User{"male", 22, "東京都八王子市"}
 
 	fmt.Println(u)
+	fmt.Println(u.gender)
 
 	fmt.Println(hello())
 }
