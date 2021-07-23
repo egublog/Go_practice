@@ -13,9 +13,14 @@ func main() {
 	a := 439
 	b := &a
 
+	c := [...]int {1, 2, 3, 4, 5, 56}
+	d := c[1:3]
+
 	fmt.Println(u)
 	fmt.Println(u.gender)
 	fmt.Println(*b)
+	fmt.Println(c)
+	fmt.Println(d)
 
 	fmt.Println(hello())
 }
