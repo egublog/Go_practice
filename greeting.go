@@ -11,4 +11,11 @@ func main() {
 	u := User{"male", 22, "東京都八王子市"}
 
 	fmt.Println(u)
+
+	fmt.Println(hello())
+}
+
+func hello() (hello string) {
+	hello = "hello"
+	return
 }
