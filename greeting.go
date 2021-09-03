@@ -13,12 +13,13 @@ type User struct {
 func main() {
 	u := User{"male", 22, "東京都八王子市"}
 
-	var s, sep string
-	for i := 1; i < len(os.Args); i++ {
-		s += sep + os.Args[i]
+	s, sep := "", ""
+	for _, arg := range os.Args[0:] {
+		s += sep + arg
 		sep = " "
 	}
 	fmt.Println(s)
+	fmt.Println(os.Args[0:])
 
 	fmt.Println(u)
 	fmt.Println(u.gender)
