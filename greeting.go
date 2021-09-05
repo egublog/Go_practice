@@ -26,9 +26,15 @@ func main() {
 	fmt.Println(u.gender)
 
 	fmt.Println(hello())
+	fmt.Println(double(39))
 }
 
 func hello() (hello string) {
 	hello = "hello"
 	return
+}
+
+func double(number int)(doubleNumber int) {
+	doubleNumber = number * 2
+	return 
 }
