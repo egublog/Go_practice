@@ -26,7 +26,7 @@ func main() {
 	fmt.Println(u.gender)
 
 	fmt.Println(hello())
-	fmt.Println(double(39))
+	fmt.Println(double(19))
 }
 
 func hello() (hello string) {
