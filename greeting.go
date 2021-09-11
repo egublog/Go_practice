@@ -2,6 +2,8 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/user"
+	"time"
 )
 
 type User struct {
@@ -24,6 +26,9 @@ func main() {
 
 	fmt.Println(u)
 	fmt.Println(u.gender)
+
+	fmt.Println(time.Now())
+	fmt.Println(user.Current())
 
 	fmt.Println(hello())
 	fmt.Println(double(19))
