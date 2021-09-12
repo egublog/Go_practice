@@ -11,4 +11,9 @@ func main() {
 		c = append(c, i)
 		fmt.Println(c)
 	}
+
+	func (x int) {
+		r := x * 2
+		fmt.Println(r)
+	}(98)
 }
