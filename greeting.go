@@ -4,21 +4,23 @@ import "fmt"
 
 
 func main() {
-	var	c []int
+	var i int = 100
+	var j int = 200
+	var p1 *int
+	var p2 *int
+	p1 = &i
+	p2 = &j
 
-	c = make([]int, 0, 5)
-	for i := 1; i < 5; i++ {
-		c = append(c, i)
-		fmt.Println(c)
-	}
-
-	func (x int) {
-		r := x * 2
-		fmt.Println(r)
-	}(98)
-
-	a := circleArea(3.14)
-	fmt.Println(a(3))
+	i = *p1 + *p2
+	fmt.Println(*p1)
+	i = *p1 + *p2
+	fmt.Println(*p1)
+	i = *p1 + *p2
+	fmt.Println(*p1)
+	i = *p1 + *p2
+	fmt.Println(*p1)
+	i = *p1 + *p2
+	fmt.Println(*p1)
 }
 
 func circleArea(pai float64) func(radius float64) float64 {
