@@ -16,4 +16,13 @@ func main() {
 		r := x * 2
 		fmt.Println(r)
 	}(98)
+
+	a := circleArea(3.14)
+	fmt.Println(a(3))
+}
+
+func circleArea(pai float64) func(radius float64) float64 {
+	return func (radius float64) float64 {
+		return pai * radius * radius
+	}
 }
