@@ -1,45 +1,14 @@
 package main
-import (
-	"fmt"
-	"os"
-	"os/user"
-	"time"
-)
 
-type User struct {
-	gender string
-	age int
-	address string
-	weight int
-}
+import "fmt"
+
 
 func main() {
-	u := User{"male", 22, "東京都八王子市", 65}
+	var	c []int
 
-	s, sep := "", ""
-	for _, arg := range os.Args[0:] {
-		s += sep + arg
-		sep = " "
+	c = make([]int, 0, 5)
+	for i := 1; i < 5; i++ {
+		c = append(c, i)
+		fmt.Println(c)
 	}
-	fmt.Println(s)
-	fmt.Println(os.Args[0:])
-
-	fmt.Println(u)
-	fmt.Println(u.gender)
-
-	fmt.Println(time.Now())
-	fmt.Println(user.Current())
-
-	fmt.Println(hello())
-	fmt.Println(double(19))
-}
-
-func hello() (hello string) {
-	hello = "hello"
-	return
-}
-
-func double(number int)(doubleNumber int) {
-	doubleNumber = number * 2
-	return 
 }
