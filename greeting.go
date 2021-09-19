@@ -4,27 +4,18 @@ import (
 	"fmt"
 )
 
-func goroutine(s string) {
-	for i := 0; i < 5; i++ {
-		// time.Sleep(500 * time.Millisecond)
-		fmt.Println(s)
-	}
-}
-
-func normal(s string) {
-	for i := 0; i < 5; i++ {
-		// time.Sleep(500 * time.Millisecond)
-		fmt.Println(s)
-	}
-}
-
 func main() {
-	go goroutine("world")
-	normal("hello")
+	s := []int{1, 2, 3, 4, 5}
+	c := make(chan int)
+	go goroutine1(s, c)
+	x := <-c
+	fmt.Println(x)
 }
 
-func circleArea(pai float64) func(radius float64) float64 {
-	return func (radius float64) float64 {
-		return pai * radius * radius
+func goroutine1(s []int, c chan int) {
+	sum := 0
+	for _, v := range s {
+		sum += v
 	}
+	c <- sum
 }
