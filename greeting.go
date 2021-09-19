@@ -1,22 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-
-type User struct {
-	name string
-	age int
+func goroutine(s string) {
+	for i := 0; i < 5; i++ {
+		// time.Sleep(500 * time.Millisecond)
+		fmt.Println(s)
+	}
 }
 
-func (u *User) action() {
-	u.name = u.name + "a"
-	u.age  = u.age * 3
+func normal(s string) {
+	for i := 0; i < 5; i++ {
+		// time.Sleep(500 * time.Millisecond)
+		fmt.Println(s)
+	}
 }
 
 func main() {
-	user := User{"江口", 23}
-	user.action()
-	fmt.Println(user)
+	go goroutine("world")
+	normal("hello")
 }
 
 func circleArea(pai float64) func(radius float64) float64 {
