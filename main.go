@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"../Go_practice/mylib"
+	"Go_practice/mylib"
 )
 
 func main() {
