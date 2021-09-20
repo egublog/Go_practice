@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"Go_practice/mylib"
+	"fmt"
+	"time"
 )
 
 func main() {
@@ -15,6 +16,9 @@ func main() {
 	h := mylib.Average(s)
 	
 	fmt.Println(h)
+	t := time.Now()
+
+	fmt.Println(t.Format(time.RFC3339))
 }
 
 func goroutine1(s []int, c chan int) {
