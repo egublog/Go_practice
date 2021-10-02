@@ -19,6 +19,7 @@ func main() {
 	t := time.Now()
 
 	fmt.Println(t.Format(time.RFC3339))
+	fmt.Println(t.Format(time.RFC1123))
 }
 
 func goroutine1(s []int, c chan int) {
