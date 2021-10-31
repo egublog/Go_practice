@@ -1,31 +1,14 @@
 package main
 
 import (
-	"Go_practice/mylib"
 	"fmt"
-	"time"
+	"net/http"
 )
 
-func main() {
-	s := []int{1, 2, 3, 4, 5}
-	c := make(chan int)
-	go goroutine1(s, c)
-	x := <-c
-	fmt.Println(x)
-
-	h := mylib.Average(s)
-	
-	fmt.Println(h)
-	t := time.Now()
-
-	fmt.Println(t.Format(time.RFC3339))
-	fmt.Println(t.Format(time.RFC1123))
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello, HTTPサーバ")
 }
-
-func goroutine1(s []int, c chan int) {
-	sum := 0
-	for _, v := range s {
-		sum += v
-	}
-	c <- sum
+func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
 }
