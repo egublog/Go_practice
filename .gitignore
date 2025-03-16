@@ -1,0 +1,37 @@
+# コンパイルされたバイナリ
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# テストバイナリ、ビルド結果
+*.test
+*.out
+/coverage
+
+# Go言語の一時ファイル
+*.o
+*.a
+_obj
+_test
+/vendor/
+
+# デバッグファイル
+debug
+debug.test
+
+# IDE/エディタの設定
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS生成ファイル
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
