@@ -78,3 +78,26 @@ func (h *UserHandler) GetUser(w http.ResponseWriter, r *http.Request, id string)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(user)
 }
+
+func (h *UserHandler) UpdateUser(w http.ResponseWriter, r *http.Request, id string) {
+	var updatedUser User
+	if err := json.NewDecoder(r.Body).Decode(&updatedUser); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+	}
+
+	h.store.Lock()
+	defer h.store.Unlock()
+
+	if _, exists := h.store.users[id]; !exists {
+			http.Error(w, "User not found", http.StatusNotFound)
+			return
+	}
+
+	// IDは変更せずに名前のみを更新
+	updatedUser.ID = id
+	h.store.users[id] = updatedUser
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(updatedUser)
+}
