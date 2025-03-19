@@ -98,6 +98,19 @@ func (h *UserHandler) UpdateUser(w http.ResponseWriter, r *http.Request, id stri
 	updatedUser.ID = id
 	h.store.users[id] = updatedUser
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(updatedUser)
+w.Header().Set("Content-Type", "application/json")
+json.NewEncoder(w).Encode(updatedUser)
+}
+
+func (h *UserHandler) DeleteUser(w http.ResponseWriter, r *http.Request, id string) {
+	h.store.Lock()
+	defer h.store.Unlock()
+
+	if _, exists := h.store.users[id]; !exists {
+		http.Error(w, "User not found", http.StatusNotFound)
+		return
+	}
+
+	delete(h.store.users, id)
+	w.WriteHeader(http.StatusNoContent)
 }
