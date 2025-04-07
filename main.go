@@ -9,6 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// main function initializes the router and sets up the API endpoints
 func main() {
 	r := mux.NewRouter()
 	userHandler := handlers.NewUserHandler()
